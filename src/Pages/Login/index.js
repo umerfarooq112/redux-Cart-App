@@ -1,3 +1,5 @@
+import TextField from "@mui/material/TextField";
+
 import axios from "axios";
 import React, { useState } from "react";
 import { useEffect } from "react";
@@ -31,12 +33,15 @@ const Login = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
         <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          name="password"
-          // value={Password}
-          onChange={(e) => setPassword(e.target.value)}
-          id="password"
+        <TextField
+          required
+          id="outlined-required"
+          // label="Required"
+          placeholder="Required"
+          defaultValue="Hello World"
+          InputLabelProps={{
+            shrink: true,
+          }}
         />
         <button className="login-btn" type="submit">
           Login
