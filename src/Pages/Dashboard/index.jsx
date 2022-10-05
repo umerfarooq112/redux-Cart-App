@@ -2,13 +2,14 @@ import { Paper, Table, TableBody, TableCell, TableHead, TableRow, TextField } fr
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import AxiosClient from "../../Common";
+import AxiosClient from "../../Common/AxiosClient";
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { FormLabel } from '@mui/material';
 import { useFormik } from "formik";
+import Layout from "../../Layout";
 function Dashboard() {
   const [Data, setTableData] = useState([])
   const formik = useFormik({
@@ -53,72 +54,13 @@ function Dashboard() {
   };
 
   return <>
-    <Button onClick={handleOpen} variant="contained">Add Item</Button>
-    <Modal
-      open={open}
-      onClose={handleClose}
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description"
-    >
-      <Box sx={style}>
-        <form onSubmit={formik.handleSubmit}>
-          <div>
-            <FormLabel>Name </FormLabel>
-            <TextField id="name" name='name'
-              onChange={formik.handleChange}
-              value={formik.values.name}
-              label="Name" variant="outlined" />
-          </div>
-          <div>
-            <FormLabel>Price </FormLabel>
-            <TextField id="name"
-              onChange={formik.handleChange}
-              value={formik.values.price}
-              type='number'
-              label="Name" name='price' variant="outlined" margin="normal" />
-          </div>
-          <div>
-            <FormLabel>Description </FormLabel>
-            <TextField
-              placeholder="Description"
-              name='description'
-              multiline
-              rows={2}
-              maxRows={4}
-              onChange={formik.handleChange}
-              value={formik.values.description}
-            />    </div>
-          <Button variant="outlined" onClick={handleClose}>cancel</Button>
-          <Button variant="contained" type="submit" >Save</Button>
-        </form>
-      </Box>
-    </Modal>
-    <Table component={Paper} className='my-1'>
-      <TableHead>
-        <TableRow>
-          <TableCell>Id</TableCell>
-          <TableCell>Name</TableCell>
-          <TableCell>Price</TableCell>
-        </TableRow>
-      </TableHead>
-      <TableBody>
-        {
-          Data.map(items => {
-            return <TableRow key={items._id}>
-              <TableCell component="th" scope="row">
-                {items._id}
-              </TableCell>
-              <TableCell component="th" scope="row">
-                {items.name}
-              </TableCell>
-              <TableCell component="th" scope="row">
-                {items.price}
-              </TableCell>
-            </TableRow>
-          })
-        }
-      </TableBody>
-    </Table>
+    <Layout>
+      <div className="dashboard-wrapper pl-5 pt-5">
+        <Box>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde, fuga?</p>
+        </Box>
+      </div>
+    </Layout>
   </>;
 }
 

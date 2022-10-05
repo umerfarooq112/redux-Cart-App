@@ -1,0 +1,21 @@
+.Primary-Layout-wrapper {
+  .left--sidebar {
+    position: fixed;
+    width: 280px;
+    min-height: 100vh;
+    z-index: 3;
+  }
+  .primary-topbar {
+    z-index: 5;
+    .top-bar--content {
+      .settings-icon {
+        width: 30px;
+        height: 30px;
+        color: gray;
+      }
+    }
+  }
+  .primary-main-layout {
+    padding-left: 280px;
+  }
+}
